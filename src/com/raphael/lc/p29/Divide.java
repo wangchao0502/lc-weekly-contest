@@ -12,6 +12,26 @@ class Divide {
      */
     public int divide(int dividend, int divisor) {
         // code
-        return dividend / divisor;
+        // 二分法 dividend而每次减去2^n个divisor, 同时result每次加2^n
+        if (dividend == Integer.MIN_VALUE && divisor == -1) {
+            return Integer.MAX_VALUE;
+        }
+
+        boolean k = (dividend > 0 && divisor > 0) || (dividend < 0 && divisor < 0);
+        int ans = 0;
+        dividend = -Math.abs(dividend);
+        divisor = -Math.abs(divisor);
+
+        while (dividend <= divisor) {
+            int tmp = divisor;
+            int c = 1;
+            while (dividend - tmp <= tmp) {
+                tmp <<= 1;
+                c <<= 1;
+            }
+            dividend -= tmp;
+            ans += c;
+        }
+        return k ? ans : -ans;
     }
 }
