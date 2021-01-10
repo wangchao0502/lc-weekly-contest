@@ -34,6 +34,8 @@ class MinimumTimeRequired {
                 }
             }
         }
+        // dp[i][S]: 分给i个工人，S集合对应天数工作总和的最优解
+        // dp[i - 1][S ^ ns]: 其他工人干剩余的活的最优解
         for (int i = 1; i <= k; i++) {
             for (int s = 0; s < (1 << len); s++) {
                 for (int ns = s; ns > 0; ns = (ns - 1) & s) {
