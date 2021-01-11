@@ -1,5 +1,7 @@
 package com.raphael.lc.common;
 
+import java.util.Objects;
+
 /**
  * @author Raphael
  */
@@ -22,5 +24,25 @@ public class ListNode {
             tail = tail.next;
         }
         return head;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ListNode listNode = (ListNode) o;
+        if (next == null) {
+            return listNode.next == null;
+        }
+        return val == listNode.val && next.equals(listNode.next);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(val, next);
     }
 }

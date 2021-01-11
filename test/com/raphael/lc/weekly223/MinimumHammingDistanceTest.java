@@ -13,7 +13,7 @@ class MinimumHammingDistanceTest {
 
     @Test
     void t1() {
-        int[] source = {1, 2, 3, 4};
+        int[] source = {1, 2, 3, 5};
         int[] target = {2, 1, 4, 3};
         int[][] allowedSwaps = {{0, 1}, {2, 3}};
         Assertions.assertEquals(1, solution.minimumHammingDistance(source, target, allowedSwaps));

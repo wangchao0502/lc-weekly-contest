@@ -7,6 +7,7 @@ import com.raphael.lc.common.ListNode;
  * @author raphael
  * @date 2021-01-10 10:42:56
  */
+@SuppressWarnings("ALL")
 class SwapNodes {
     /**
      * Description for SwapNodes:
@@ -17,30 +18,23 @@ class SwapNodes {
         // code
         ListNode fast = head;
         ListNode slow = head;
-        ListNode first = null;
-        ListNode second = null;
+        ListNode kth = head;
 
         int i = 1;
-        while (fast != null && slow != null) {
-            if (i == k) {
-                first = fast;
-            }
-            fast = fast.next;
-            if (i > k) {
+        while (fast.next != null) {
+            if (i < k) {
+                kth = kth.next;
+            } else {
                 slow = slow.next;
             }
-            if (fast == null) {
-                second = slow;
-            }
+            fast = fast.next;
             i++;
         }
 
         // swap
-        assert first != null;
-        int tmp = first.val;
-        assert second != null;
-        first.val = second.val;
-        second.val = tmp;
+        int tmp = kth.val;
+        kth.val = slow.val;
+        slow.val = tmp;
 
         return head;
     }

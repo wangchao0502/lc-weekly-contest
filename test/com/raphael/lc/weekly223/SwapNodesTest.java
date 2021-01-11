@@ -16,6 +16,6 @@ class SwapNodesTest {
     void t1() {
         Assertions.assertEquals(
                 ListNode.build(new int[]{1, 2, 3}),
-                solution.swapNodes(ListNode.build(new int[]{1, 2, 3}), 1));
+                solution.swapNodes(ListNode.build(new int[]{1, 2, 3}), 2));
     }
 }
