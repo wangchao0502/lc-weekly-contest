@@ -1,4 +1,4 @@
-package com.raphael.lc.weekly223;
+package com.raphael.lc.weekly223.p1721;
 
 
 import com.raphael.lc.common.ListNode;
@@ -7,7 +7,6 @@ import com.raphael.lc.common.ListNode;
  * @author raphael
  * @date 2021-01-10 10:42:56
  */
-@SuppressWarnings("ALL")
 class SwapNodes {
     /**
      * Description for SwapNodes:

@@ -1,9 +1,10 @@
 #!/bin/bash
 
-problem_no="$1"
+problem_package="$1"
+problem_path="${1//\./\/}"
 problem_name="$2"
 base=$(dirname "$0")
-package_path="com/raphael/lc/$problem_no"
+package_path="com/raphael/lc/$problem_path"
 src_file_path="src/$package_path"
 test_file_path="test/$package_path"
 problem_name_upper_case=$(echo "$problem_name" | awk '{print toupper(substr($0,0,1))substr($0,2)}')
@@ -23,7 +24,7 @@ cd "$src_file_path" || exit
 
 # create src java file
 cat <<EOF > "$src_file_name"
-package com.raphael.lc.$problem_no;
+package com.raphael.lc.$problem_package;
 
 /**
  * @author raphael
@@ -41,7 +42,7 @@ class $problem_name_upper_case {
 }
 EOF
 
-echo "$src_file_name.java for problem - $problem_name_upper_case created."
+echo "$src_file_name for problem - $problem_name_upper_case created."
 
 cd "$root_dir" || exit
 mkdir -p "$test_file_path"
@@ -49,7 +50,7 @@ cd "$test_file_path" || exit
 
 # create test java file
 cat <<EOF > "$test_file_name"
-package com.raphael.lc.$problem_no;
+package com.raphael.lc.$problem_package;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -69,4 +70,4 @@ class $test_class_name {
 }
 EOF
 
-echo "$test_file_name.java for problem - $problem_name_upper_case created."
+echo "$test_file_name for problem - $problem_name_upper_case created."

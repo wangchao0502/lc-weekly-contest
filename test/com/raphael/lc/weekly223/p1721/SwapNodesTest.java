@@ -1,4 +1,4 @@
-package com.raphael.lc.weekly223;
+package com.raphael.lc.weekly223.p1721;
 
 import com.raphael.lc.common.ListNode;
 import org.junit.jupiter.api.Assertions;

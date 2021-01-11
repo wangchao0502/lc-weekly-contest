@@ -1,4 +1,4 @@
-package com.raphael.lc.weekly223;
+package com.raphael.lc.weekly223.p1722;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
