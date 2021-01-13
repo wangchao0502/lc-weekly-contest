@@ -24,7 +24,7 @@ class MinimumHammingDistance {
         for (int[] a : allowedSwaps) {
             uf.union(a[0], a[1]);
         }
-        HashMap<Integer, List<Integer>> tMap = new HashMap<>(8);
+        HashMap<Integer, List<Integer>> tMap = new HashMap<>(16);
         for (int i = 0; i < len; i++) {
             List<Integer> list = tMap.getOrDefault(target[i], new ArrayList<>());
             list.add(i);

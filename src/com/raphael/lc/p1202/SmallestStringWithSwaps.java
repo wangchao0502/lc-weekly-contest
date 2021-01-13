@@ -23,7 +23,7 @@ class SmallestStringWithSwaps {
             uf.union(pair.get(0), pair.get(1));
         }
 
-        HashMap<Integer, PriorityQueue<Character>> hmap = new HashMap<>(8);
+        HashMap<Integer, PriorityQueue<Character>> hmap = new HashMap<>(16);
         for (int i = 0; i < len; i++) {
             int root = uf.find(i);
             hmap.computeIfAbsent(root, key -> new PriorityQueue<>()).add(s.charAt(i));
