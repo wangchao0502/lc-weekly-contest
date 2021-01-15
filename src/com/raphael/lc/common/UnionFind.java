@@ -9,14 +9,23 @@ public class UnionFind {
      * 以 i 为根结点的子树的高度（引入了路径压缩以后该定义并不准确）
      */
     int[] rank;
+    /**
+     * 联通分量个数
+     */
+    int count;
 
     public UnionFind(int n) {
         this.parent = new int[n];
         this.rank = new int[n];
+        this.count = n;
         for (int i = 0; i < n; i++) {
             parent[i] = i;
             rank[i] = i;
         }
+    }
+
+    public int getCount() {
+        return count;
     }
 
     public void union(int p, int q) {
@@ -36,6 +45,7 @@ public class UnionFind {
             // 同理，此时以 rootP 为根结点的树的高度不变
             parent[rootQ] = rootP;
         }
+        count--;
     }
 
     /**
