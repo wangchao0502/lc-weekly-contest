@@ -29,7 +29,7 @@ class LargestSubmatrix {
             Arrays.sort(ints);
             int height = Integer.MAX_VALUE;
             for (int j = m - 1; j >= 0; j--) {
-                height = Math.min(n, ints[j]);
+                height = Math.min(height, ints[j]);
                 ans = Math.max(ans, height * (m - j));
             }
         }

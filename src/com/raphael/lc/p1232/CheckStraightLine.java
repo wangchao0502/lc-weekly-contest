@@ -17,10 +17,21 @@ class CheckStraightLine {
         if (coordinates.length == 2) {
             return true;
         }
-        double k = (double) (coordinates[0][0] - coordinates[1][0]) / (coordinates[0][1] - coordinates[1][1]);
+        double k;
+        if (coordinates[1][1] != coordinates[0][1]) {
+            k = (double) (coordinates[1][0] - coordinates[0][0]) / (coordinates[1][1] - coordinates[0][1]);
+        } else {
+            k = -1;
+        }
         for (int i = 2; i < coordinates.length; i++) {
             int[] curPoint = coordinates[i];
             int[] prePoint = coordinates[i - 1];
+            if (curPoint[1] == prePoint[1]) {
+                if (k == -1) {
+                    continue;
+                }
+                return false;
+            }
             if ((double) (curPoint[0] - prePoint[0]) / (curPoint[1] - prePoint[1]) != k) {
                 return false;
             }
