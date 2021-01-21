@@ -9,7 +9,7 @@ import com.raphael.lc.common.ListNode;
 class RemoveElements {
     /**
      * Description for RemoveElements:
-     *
+     * 删除链表节点
      */
     public ListNode removeElements(ListNode head, int val) {
         ListNode dummy = new ListNode();
