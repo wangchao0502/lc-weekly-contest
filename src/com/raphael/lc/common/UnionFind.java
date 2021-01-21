@@ -34,11 +34,11 @@ public class UnionFind {
         return count;
     }
 
-    public void union(int p, int q) {
+    public boolean union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
         if (rootP == rootQ) {
-            return;
+            return false;
         }
         // 合并调整size和rank
         if (rank[rootP] == rank[rootQ]) {
@@ -56,6 +56,7 @@ public class UnionFind {
             size[rootP] += size[rootQ];
         }
         count--;
+        return true;
     }
 
     /**
