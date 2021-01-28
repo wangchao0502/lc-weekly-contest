@@ -1,7 +1,7 @@
 package com.raphael.lc.p3;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author raphael
@@ -14,21 +14,19 @@ class LengthOfLongestSubString {
      */
     public int lengthOfLongestSubString(String s) {
         // code
-        Set<Character> occ = new HashSet<>();
+        Map<Character, Integer> map = new HashMap<>(16);
         int n = s.length();
+        int k = -1;
         int ans = 0;
-        // 右指针，初始值为-1，相当于我们在字符串的左边界的左侧，还没有开始移动
-        int rk = -1;
         for (int i = 0; i < n; i++) {
-            if (i != 0) {
-                // 左指针向右移动一格，移除一个字符
-                occ.remove(s.charAt(i - 1));
+            char c = s.charAt(i);
+            if (map.containsKey(c) && map.get(c) > k) {
+                k = map.get(c);
+                map.put(c, i);
+            } else {
+                map.put(c, i);
+                ans = Math.max(ans, i - k);
             }
-            while (rk + 1 < n && !occ.contains(s.charAt(rk + 1))) {
-                occ.add(s.charAt(rk + 1));
-                rk++;
-            }
-            ans = Math.max(ans, rk - i + 1);
         }
         return ans;
     }
