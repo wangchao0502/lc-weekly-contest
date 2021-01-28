@@ -26,12 +26,12 @@ class ReverseKGroup {
                     return hair.next;
                 }
             }
-            ListNode nex = tail.next;
+            ListNode next = tail.next;
             ListNode[] reverse = myReverse(head, tail);
             head = reverse[0];
             tail = reverse[1];
             pre.next = head;
-            tail.next = nex;
+            tail.next = next;
             pre = tail;
             head = tail.next;
         }
@@ -42,10 +42,10 @@ class ReverseKGroup {
         ListNode prev = tail.next;
         ListNode p = head;
         while (prev != tail) {
-            ListNode nex = p.next;
+            ListNode next = p.next;
             p.next = prev;
             prev = p;
-            p = nex;
+            p = next;
         }
         return new ListNode[]{tail, head};
     }
