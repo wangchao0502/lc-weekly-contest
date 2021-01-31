@@ -29,7 +29,6 @@ class MergeSort {
     }
 
     public void sort(int[] nums) {
-        if (nums == null) return;
         int[] tmp = new int[nums.length];
         mergeSort(nums, 0, nums.length - 1, tmp);
     }

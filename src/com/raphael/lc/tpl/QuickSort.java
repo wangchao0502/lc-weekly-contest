@@ -32,7 +32,6 @@ class QuickSort {
     }
 
     public void sort(int[] nums) {
-        if (nums == null) return;
         quickSort(nums, 0, nums.length - 1);
     }
 }
