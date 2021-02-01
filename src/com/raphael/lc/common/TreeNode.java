@@ -8,28 +8,47 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
-    public TreeNode(int val) {
-        this.val = val;
+    private static final String EMPTY = "[]";
+    private static final String SPACE = "      ";
+
+    public TreeNode(int x) {
+        val = x;
     }
 
-    public TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+    /**
+     * 创建测试数据
+     *
+     * @return {@link TreeNode}
+     */
+    public static TreeNode build(String data) {
+        if (EMPTY.equals(data)) {
+            return null;
+        }
+        data = data.substring(1, data.length() - 1);
+        String[] split = data.split(",");
+        int len = split.length;
 
-    public static TreeNode build(int[] arr) {
-        TreeNode[] nodes = new TreeNode[arr.length];
-
-        for (int i = arr.length - 1; i >= 0; i--) {
-            nodes[i] = new TreeNode(arr[i]);
-            if (2 * i + 1 < arr.length) {
-                nodes[i].left = nodes[2 * i + 1];
-            }
-            if (2 * i + 2 < arr.length) {
-                nodes[i].right = nodes[2 * i + 2];
+        TreeNode[] treeNodes = new TreeNode[len + 1];
+        for (int i = 1; i < treeNodes.length; i++) {
+            if ("null".equals(split[i - 1])) {
+                treeNodes[i] = null;
+            } else {
+                treeNodes[i] = new TreeNode(Integer.parseInt(split[i - 1]));
             }
         }
-        return nodes[0];
+
+        TreeNode treeNode;
+        for (int i = 1, index = 2; i < treeNodes.length && index < treeNodes.length; i++) {
+            treeNode = treeNodes[i];
+            if (treeNode == null) {
+                continue;
+            }
+            treeNode.left = treeNodes[index];
+            if (index + 1 < treeNodes.length) {
+                treeNode.right = treeNodes[index + 1];
+            }
+            index += 2;
+        }
+        return treeNodes[1];
     }
 }
