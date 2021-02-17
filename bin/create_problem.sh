@@ -27,7 +27,7 @@ cat <<EOF > "$src_file_name"
 package com.raphael.lc.$problem_package;
 
 /**
- * @author raphael
+ * @author Raphael
  * @date $time
  */
 class $problem_name_upper_case {
@@ -56,7 +56,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 /**
- * @author raphael
+ * @author Raphael
  * @date $time
  */
 class $test_class_name {
