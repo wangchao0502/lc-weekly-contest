@@ -1,7 +1,7 @@
 #!/bin/bash
 
 problem_package="$1"
-problem_path="${1//\./\/}"
+problem_path=${1//.//}
 problem_name="$2"
 base=$(dirname "$0")
 package_path="com/raphael/lc/$problem_path"
