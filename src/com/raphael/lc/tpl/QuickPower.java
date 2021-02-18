@@ -4,7 +4,6 @@ package com.raphael.lc.tpl;
  * @author raphael
  * @date 2021-01-31 23:49:28
  */
-@SuppressWarnings("AliControlFlowStatementWithoutBraces")
 class QuickPower {
     /**
      * Description for QuickPower:

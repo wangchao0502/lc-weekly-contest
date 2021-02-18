@@ -4,7 +4,6 @@ package com.raphael.lc.tpl;
  * @author raphael
  * @date 2021-01-31 23:43:40
  */
-@SuppressWarnings("AliControlFlowStatementWithoutBraces")
 class QuickPowerMod {
     /**
      * Description for QuickPowerMod:

@@ -4,10 +4,10 @@ package com.raphael.lc.tpl;
  * @author raphael
  * @date 2021-01-31 22:26:00
  */
-@SuppressWarnings("AliControlFlowStatementWithoutBraces")
 class MergeSort {
     /**
      * Description for MergeSort:
+     * 归并排序
      */
     public void mergeSort(int[] nums, int left, int right, int[] tmp) {
         if (left >= right) return;

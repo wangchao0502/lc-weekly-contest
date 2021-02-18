@@ -4,7 +4,6 @@ package com.raphael.lc.tpl;
  * @author raphael
  * @date 2021-01-31 20:11:27
  */
-@SuppressWarnings("AliControlFlowStatementWithoutBraces")
 class QuickSort {
     /**
      * Description for QuickSort:
