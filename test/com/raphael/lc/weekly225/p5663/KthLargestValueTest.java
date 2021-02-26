@@ -32,6 +32,6 @@ class KthLargestValueTest {
     @Test
     void t4() {
         int[][] matrix = {{10, 9, 5}, {2, 0, 4}, {1, 0, 9}, {3, 4, 8}};
-        Assertions.assertEquals(10, solution.kthLargestValue(matrix, 10));
+        Assertions.assertEquals(1, solution.kthLargestValue(matrix, 10));
     }
 }
