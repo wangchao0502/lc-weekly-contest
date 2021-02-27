@@ -16,6 +16,8 @@ public class TreeNode {
         val = x;
     }
 
+    public TreeNode() {}
+
     /**
      * 创建测试数据
      *
