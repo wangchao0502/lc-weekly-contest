@@ -7,15 +7,12 @@ import java.util.Set;
  * @author Raphael
  * @date 2021-04-04 11:00:21
  */
-@SuppressWarnings("AlibabaLowerCamelCaseVariableNaming")
+@SuppressWarnings({"AlibabaLowerCamelCaseVariableNaming"})
 class CountDifferentSubsequenceGCDs {
     /**
      * Description for CountDifferentSubsequenceGCDs:
      * 序列中不同最大公约数的数目
      */
-
-    Set<Integer> set;
-
     private int gcd(int a, int b) {
         if (b == 0)
             return a;
@@ -23,25 +20,23 @@ class CountDifferentSubsequenceGCDs {
             return gcd(b, a % b);
     }
 
-    private void backtracking(int[] nums, int start, int prev) {
-        if (prev != 0) set.add(prev);
-        if (prev == 1) return;
-
-        for (int i = start; i < nums.length; i++) {
-            if (prev == 0) {
-                backtracking(nums, i + 1, nums[i]);
-            } else {
-                backtracking(nums, i + 1, gcd(prev, nums[i]));
-                backtracking(nums, i + 1, prev);
-            }
-        }
-    }
-
     public int countDifferentSubsequenceGCDs(int[] nums) {
         // code
-        int n = nums.length;
-        set = new HashSet<>();
-        backtracking(nums, 0, 0);
-        return set.size();
+        boolean[] vis = new boolean[200001];
+        for (int x : nums) vis[x] = true;
+        int ans = 0;
+
+        for (int i = 1; i <= 200000; i++) {
+            int fst = -1;
+            for (int j = i; j <= 200000; j += i) {
+                if (vis[j]) {
+                    if (fst == -1) fst = j;
+                    else fst = gcd(fst, j);
+                }
+            }
+            if (fst == i) ans++;
+        }
+
+        return ans;
     }
 }
