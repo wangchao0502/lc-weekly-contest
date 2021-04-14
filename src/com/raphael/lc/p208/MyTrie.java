@@ -15,7 +15,7 @@ class MyTrie {
     int[] cnt;
 
     public MyTrie() {
-        this(10000);
+        this(100010);
     }
 
     public MyTrie(int n) {
