@@ -16,7 +16,6 @@ class LevelOrder {
      * Description for LevelOrder:
      * 从上到下打印二叉树
      */
-    @SuppressWarnings("ConstantConditions")
     public int[] levelOrder(TreeNode root) {
         // code
         if (root == null) return new int[]{};
