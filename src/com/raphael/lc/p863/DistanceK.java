@@ -16,7 +16,8 @@ class DistanceK {
 
     Map<TreeNode, TreeNode> parent;
 
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int K) {
+    @SuppressWarnings("unused")
+    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         parent = new HashMap<>(16);
         dfs(root, null);
 
@@ -32,7 +33,7 @@ class DistanceK {
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
             if (node == null) {
-                if (dist == K) {
+                if (dist == k) {
                     List<Integer> ans = new ArrayList<>();
                     for (TreeNode n : queue)
                         ans.add(n.val);
